@@ -1,6 +1,26 @@
-import React, {useState} from 'react';
-import {View, Text, Button, Alert, ScrollView, Image} from 'react-native';
-import RNPickerSelect from 'react-native-picker-select';
+import React, {useState} from "react";
+import {View, Text, Button, Alert, ScrollView, Image, StyleSheet} from "react-native";
+import RNPickerSelect from "react-native-picker-select";
+const styles = StyleSheet.create({
+    header: {
+        fontSize: 36,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginBottom: 20,
+        backgroundColor: "yellow",
+        borderWidth: 1,
+    },
+    image: {
+        width: "100%",
+        height: 250,
+        resizeMode: "contain",
+        marginVertical: 15,
+    },
+    text: {
+        fontSize: 18,
+        textAlign: "center",
+    }
+});
 const MyApp = () => {
     const [type1, setType1] = useState("");
     const [type2, setType2] = useState("");
@@ -18,9 +38,9 @@ const MyApp = () => {
     return (
         <ScrollView contentContainerStyle={{paddingBottom: 20}}>
             <View style={{paddingTop: 50}}>
-                <Text style={{fontSize:50, fontWeight: "bold", textAlign:"center"}}>Animal Quiz</Text>
-                <Image source={require("./img/owl.jpg")} style={{width:"100%", height:300}}/>
-                <Text>What animal is this?</Text>
+                <Text style={styles.header}>Animal Quiz</Text>
+                <Image source={require("./img/owl.jpg")} style={styles.image}/>
+                <Text style={styles.text}>What animal is this?</Text>
                 <RNPickerSelect
                     onValueChange={(value) => setType1(value)}
                     items={[
@@ -29,8 +49,8 @@ const MyApp = () => {
                         {label:"Peacock", value:"Peacock"}
                     ]}
                 />
-                <Image source={require("./img/tiger.jpg")} style={{width:"100%", height:300}}/>
-                <Text>What animal is this?</Text>
+                <Image source={require("./img/tiger.jpg")} style={styles.image}/>
+                <Text style={styles.text}>What animal is this?</Text>
                 <RNPickerSelect
                     onValueChange={(value) => setType2(value)}
                     items={[
@@ -39,8 +59,8 @@ const MyApp = () => {
                         {label:"Zebra", value:"Zebra"}
                     ]}
                 />
-                <Image source={require("./img/rabbit.jpg")} style={{width:"100%", height:300}}/>
-                <Text>What animal is this?</Text>
+                <Image source={require("./img/rabbit.jpg")} style={styles.image}/>
+                <Text style={styles.text}>What animal is this?</Text>
                 <RNPickerSelect
                     onValueChange={(value) => setType3(value)}
                     items={[
